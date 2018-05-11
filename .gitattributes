@@ -1,0 +1,7 @@
+*				text=auto
+*.ipynb			text eol=lf
+/dist/*.tar.gz	binary
+/sphinx/Makefile	text eol=lf
+/sphinx/*.bat	binary
+/.idea/*.xml	text eol=lf
+/.idea/*.iml	text eol=lf

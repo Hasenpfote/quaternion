@@ -1,0 +1,10 @@
+.ipynb_checkpoints/
+/__pycache__
+/build
+#/dist
+/doc
+/quaternion.egg-info
+/sphinx/build
+/test/cover
+/test/.coverage
+/test/.noseids
