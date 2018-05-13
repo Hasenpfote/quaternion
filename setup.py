@@ -7,7 +7,7 @@ if __name__ == '__main__':
     setup(
         name='quaternion',
         #packages = ['quaternion'],
-        version='0.9.0',
+        version='0.9.1',
         description='This package provides a class for manipulating quaternion objects.',
         author='Hasenpfote',
         author_email='Hasenpfote36@gmail.com',
