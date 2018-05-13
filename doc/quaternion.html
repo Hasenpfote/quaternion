@@ -1,0 +1,1019 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>quaternion package &#8212; Quaternion 0.9.1 documentation</title>
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.9.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+  </head>
+  <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Quaternion 0.9.1 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="quaternion-package">
+<h1>quaternion package<a class="headerlink" href="#quaternion-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="quaternion-quaternion-module">
+<h2>quaternion.quaternion module<a class="headerlink" href="#quaternion-quaternion-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-quaternion">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-quaternion" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="quaternion.Quaternion">
+<em class="property">class </em><code class="descclassname">quaternion.</code><code class="descname">Quaternion</code><span class="sig-paren">(</span><em>object=None</em>, <em>*</em>, <em>copy=True</em><span class="sig-paren">)</span><a class="headerlink" href="#quaternion.Quaternion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>The Quaternion class represents 3D rotations and orientations.</p>
+<dl class="attribute">
+<dt id="quaternion.Quaternion._components">
+<code class="descname">_components</code><a class="headerlink" href="#quaternion.Quaternion._components" title="Permalink to this definition">¶</a></dt>
+<dd><p>the four components of the Quaternion.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="quaternion.Quaternion.__add__">
+<code class="descname">__add__</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="headerlink" href="#quaternion.Quaternion.__add__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the Quaternion addition.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>other</strong> – A Quaternion.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The resulting Quaternion.</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">=</span> <span class="n">q</span> <span class="o">+</span> <span class="n">r</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="quaternion.Quaternion.__dict__">
+<code class="descname">__dict__</code><em class="property"> = mappingproxy({'__module__': 'quaternion', '__doc__': 'The Quaternion class represents 3D rotations and orientations.\n\n     Attributes:\n         _components: the four components of the Quaternion.\n    ', '_SIZE': 4, '_SCALAR_PART': 0, '_VECTOR_PART': slice(1, 4, None), '__init__': &lt;function Quaternion.__init__&gt;, '__add__': &lt;function Quaternion.__add__&gt;, '__iadd__': &lt;function Quaternion.__iadd__&gt;, '__sub__': &lt;function Quaternion.__sub__&gt;, '__isub__': &lt;function Quaternion.__isub__&gt;, '__mul__': &lt;function Quaternion.__mul__&gt;, '__imul__': &lt;function Quaternion.__imul__&gt;, '__rmul__': &lt;function Quaternion.__rmul__&gt;, '__truediv__': &lt;function Quaternion.__truediv__&gt;, '__itruediv__': &lt;function Quaternion.__itruediv__&gt;, '__pos__': &lt;function Quaternion.__pos__&gt;, '__neg__': &lt;function Quaternion.__neg__&gt;, '__str__': &lt;function Quaternion.__str__&gt;, 'components': &lt;property object&gt;, 'parts': &lt;property object&gt;, 'scalar_part': &lt;property object&gt;, 'vector_part': &lt;property object&gt;, 'is_zero': &lt;function Quaternion.is_zero&gt;, 'is_identity': &lt;function Quaternion.is_identity&gt;, 'is_unit': &lt;function Quaternion.is_unit&gt;, 'is_real': &lt;function Quaternion.is_real&gt;, 'is_pure': &lt;function Quaternion.is_pure&gt;, 'norm_squared': &lt;function Quaternion.norm_squared&gt;, 'norm': &lt;function Quaternion.norm&gt;, 'to_axis_angle': &lt;function Quaternion.to_axis_angle&gt;, 'to_rotation_matrix': &lt;function Quaternion.to_rotation_matrix&gt;, 'equals': &lt;classmethod object&gt;, 'are_same_rotation': &lt;classmethod object&gt;, 'identity': &lt;classmethod object&gt;, 'inverse': &lt;classmethod object&gt;, 'conjugate': &lt;classmethod object&gt;, 'dot': &lt;classmethod object&gt;, 'ln': &lt;classmethod object&gt;, 'ln_u': &lt;classmethod object&gt;, 'exp': &lt;classmethod object&gt;, 'exp_p': &lt;classmethod object&gt;, 'pow': &lt;classmethod object&gt;, 'pow_u': &lt;classmethod object&gt;, 'normalize': &lt;classmethod object&gt;, 'from_axis_angle': &lt;classmethod object&gt;, 'from_rotation_matrix': &lt;classmethod object&gt;, 'rotate': &lt;classmethod object&gt;, 'rotation_shortest_arc': &lt;classmethod object&gt;, 'rotational_difference': &lt;classmethod object&gt;, 'lerp': &lt;classmethod object&gt;, 'slerp': &lt;classmethod object&gt;, 'squad': &lt;classmethod object&gt;, 'squad_tangent': &lt;classmethod object&gt;, '_make_ndarray_by_parts': &lt;classmethod object&gt;, '_multiplication_for_ndarray': &lt;classmethod object&gt;, '_cross_for_ndarray': &lt;classmethod object&gt;, '__dict__': &lt;attribute '__dict__' of 'Quaternion' objects&gt;, '__weakref__': &lt;attribute '__weakref__' of 'Quaternion' objects&gt;})</em><a class="headerlink" href="#quaternion.Quaternion.__dict__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="quaternion.Quaternion.__iadd__">
+<code class="descname">__iadd__</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="headerlink" href="#quaternion.Quaternion.__iadd__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a Quaternion <cite>other</cite> to the Quaternion.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>other</strong> – A Quaternion.</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">+=</span> <span class="n">q</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="quaternion.Quaternion.__imul__">
+<code class="descname">__imul__</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="headerlink" href="#quaternion.Quaternion.__imul__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Multiply the Quaternion by a Quaternion <cite>other</cite>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>other</strong> – A Quaternion.</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">*=</span> <span class="n">q</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">*=</span> <span class="mf">2.</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="quaternion.Quaternion.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>object=None</em>, <em>*</em>, <em>copy=True</em><span class="sig-paren">)</span><a class="headerlink" href="#quaternion.Quaternion.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize the Quaternion.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>object</strong> – <p>The object can be specified as follows.</p>
+<ul>
+<li>Object like an array of length 4.</li>
+<li><cite>None</cite>.</li>
+<li>A self class.</li>
+</ul>
+</li>
+<li><strong>copy</strong> – True if copy an object of ndarray, otherwise False.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">q</span> <span class="o">=</span> <span class="n">Quaternion</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">,</span> <span class="mf">4.</span><span class="p">]))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">q</span> <span class="o">=</span> <span class="n">Quaternion</span><span class="p">([</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">,</span> <span class="mf">4.</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">q</span> <span class="o">=</span> <span class="n">Quaternion</span><span class="p">((</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">,</span> <span class="mf">4.</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">q</span> <span class="o">=</span> <span class="n">Quaternion</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">q</span> <span class="o">=</span> <span class="n">Quaternion</span><span class="p">(</span><span class="n">q</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">arr</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">,</span> <span class="mf">4.</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">q</span> <span class="o">=</span> <span class="n">Quaternion</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">id</span><span class="p">(</span><span class="n">q</span><span class="o">.</span><span class="n">_components</span><span class="p">)</span> <span class="o">==</span> <span class="nb">id</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span> <span class="c1"># False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">q</span> <span class="o">=</span> <span class="n">Quaternion</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">id</span><span class="p">(</span><span class="n">q</span><span class="o">.</span><span class="n">_components</span><span class="p">)</span> <span class="o">==</span> <span class="nb">id</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span> <span class="c1"># True</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="quaternion.Quaternion.__isub__">
+<code class="descname">__isub__</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="headerlink" href="#quaternion.Quaternion.__isub__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Subtract a Quaternion <cite>other</cite> from the Quaternion.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>other</strong> – A Quaternion.</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">-=</span> <span class="n">q</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="quaternion.Quaternion.__itruediv__">
+<code class="descname">__itruediv__</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="headerlink" href="#quaternion.Quaternion.__itruediv__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Divide the Quaternion by a scalar <cite>other</cite>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>other</strong> – A Quaternion.</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">q</span> <span class="o">/=</span> <span class="mf">2.</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="quaternion.Quaternion.__module__">
+<code class="descname">__module__</code><em class="property"> = 'quaternion'</em><a class="headerlink" href="#quaternion.Quaternion.__module__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="quaternion.Quaternion.__mul__">
+<code class="descname">__mul__</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="headerlink" href="#quaternion.Quaternion.__mul__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the Quaternion multiplication or scalar multiplication.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>other</strong> – A Quaternion or scalar.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The resulting Quaternion.</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">=</span> <span class="n">q</span> <span class="o">*</span> <span class="n">r</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">=</span> <span class="n">q</span> <span class="o">*</span> <span class="mf">2.</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="quaternion.Quaternion.__neg__">
+<code class="descname">__neg__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#quaternion.Quaternion.__neg__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the negative of the Quaternion.</p>
+<p class="rubric">Examples</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">=</span> <span class="o">-</span><span class="n">q</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="quaternion.Quaternion.__pos__">
+<code class="descname">__pos__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#quaternion.Quaternion.__pos__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the positive of the Quaternion.</p>
+<p class="rubric">Examples</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">=</span> <span class="o">+</span><span class="n">q</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="quaternion.Quaternion.__rmul__">
+<code class="descname">__rmul__</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="headerlink" href="#quaternion.Quaternion.__rmul__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the scalar multiplication.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>other</strong> – A scalar.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The resulting Quaternion.</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">=</span> <span class="mf">2.</span> <span class="o">*</span> <span class="n">q</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="quaternion.Quaternion.__str__">
+<code class="descname">__str__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#quaternion.Quaternion.__str__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the components of the Quaternion as a string.</p>
+<p class="rubric">Examples</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">q</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="quaternion.Quaternion.__sub__">
+<code class="descname">__sub__</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="headerlink" href="#quaternion.Quaternion.__sub__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the Quaternion subtraction.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>other</strong> – A Quaternion.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The resulting Quaternion.</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">=</span> <span class="n">q</span> <span class="o">-</span> <span class="n">r</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="quaternion.Quaternion.__truediv__">
+<code class="descname">__truediv__</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="headerlink" href="#quaternion.Quaternion.__truediv__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the scalar division.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>other</strong> – A scalar.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The resulting Quaternion.</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">=</span> <span class="n">q</span> <span class="o">/</span> <span class="mf">2.</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="quaternion.Quaternion.__weakref__">
+<code class="descname">__weakref__</code><a class="headerlink" href="#quaternion.Quaternion.__weakref__" title="Permalink to this definition">¶</a></dt>
+<dd><p>list of weak references to the object (if defined)</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="quaternion.Quaternion.are_same_rotation">
+<em class="property">classmethod </em><code class="descname">are_same_rotation</code><span class="sig-paren">(</span><em>q1</em>, <em>q2</em>, <em>*</em>, <em>atol=1e-08</em><span class="sig-paren">)</span><a class="headerlink" href="#quaternion.Quaternion.are_same_rotation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if both Quaternions are represent the same rotation.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>q1</strong> – An unit Quaternion.</li>
+<li><strong>q2</strong> – An unit Quaternion.</li>
+<li><strong>atol</strong> – The absolute tolerance to use.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">True if both Quaternions are represent the same rotation, False otherwise.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Quaternion</span><span class="o">.</span><span class="n">are_same_rotation</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">q</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="quaternion.Quaternion.components">
+<code class="descname">components</code><a class="headerlink" href="#quaternion.Quaternion.components" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the four components of the Quaternion.</p>
+<p class="rubric">Examples</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">q</span><span class="o">.</span><span class="n">components</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="quaternion.Quaternion.conjugate">
+<em class="property">classmethod </em><code class="descname">conjugate</code><span class="sig-paren">(</span><em>q</em><span class="sig-paren">)</span><a class="headerlink" href="#quaternion.Quaternion.conjugate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the conjugate Quaternion.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>q</strong> – A Quaternion.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The resulting Quaternion.</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">=</span> <span class="n">Quaternion</span><span class="o">.</span><span class="n">conjugate</span><span class="p">(</span><span class="n">q</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="quaternion.Quaternion.dot">
+<em class="property">classmethod </em><code class="descname">dot</code><span class="sig-paren">(</span><em>q1</em>, <em>q2</em><span class="sig-paren">)</span><a class="headerlink" href="#quaternion.Quaternion.dot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the dot product of two Quaternions.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>q1</strong> – A Quaternion.</li>
+<li><strong>q2</strong> – A Quaternion.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">The resulting scalar value.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Quaternion</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">q</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="quaternion.Quaternion.equals">
+<em class="property">classmethod </em><code class="descname">equals</code><span class="sig-paren">(</span><em>q1</em>, <em>q2</em>, <em>*</em>, <em>rtol=1e-05</em>, <em>atol=1e-08</em><span class="sig-paren">)</span><a class="headerlink" href="#quaternion.Quaternion.equals" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether two Quaternions are approximately equal.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>q1</strong> – A Quaternion.</li>
+<li><strong>q2</strong> – A Quaternion.</li>
+<li><strong>rtol</strong> – The relative tolerance to use.</li>
+<li><strong>atol</strong> – The absolute tolerance to use.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">True if both Quaternions are approximately equal, False otherwise.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Quaternion</span><span class="o">.</span><span class="n">equals</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">q</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="quaternion.Quaternion.exp">
+<em class="property">classmethod </em><code class="descname">exp</code><span class="sig-paren">(</span><em>q</em><span class="sig-paren">)</span><a class="headerlink" href="#quaternion.Quaternion.exp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the exponential of a Quaternion.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>q</strong> – A Quaternion.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The resulting Quaternion.</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">=</span> <span class="n">Quaternion</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">q</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="quaternion.Quaternion.exp_p">
+<em class="property">classmethod </em><code class="descname">exp_p</code><span class="sig-paren">(</span><em>q</em><span class="sig-paren">)</span><a class="headerlink" href="#quaternion.Quaternion.exp_p" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the exponential of a purely imaginary Quaternion.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>q</strong> – A purely imaginary Quaternion.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The resulting Quaternion.</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">=</span> <span class="n">Quaternion</span><span class="o">.</span><span class="n">exp_p</span><span class="p">(</span><span class="n">q</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="quaternion.Quaternion.from_axis_angle">
+<em class="property">classmethod </em><code class="descname">from_axis_angle</code><span class="sig-paren">(</span><em>axis</em>, <em>angle</em><span class="sig-paren">)</span><a class="headerlink" href="#quaternion.Quaternion.from_axis_angle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the Quaternion as a rotation of axis and angle.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>axis</strong> – Need to be an unit vector.</li>
+<li><strong>angle</strong> – Angle in radians.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">The resulting Quaternion.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">axis</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">angle</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="mf">60.</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">q</span> <span class="o">=</span> <span class="n">Quaternion</span><span class="o">.</span><span class="n">from_axis_angle</span><span class="p">(</span><span class="n">axis</span><span class="p">,</span> <span class="n">angle</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="quaternion.Quaternion.from_rotation_matrix">
+<em class="property">classmethod </em><code class="descname">from_rotation_matrix</code><span class="sig-paren">(</span><em>matrix</em><span class="sig-paren">)</span><a class="headerlink" href="#quaternion.Quaternion.from_rotation_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the Quaternion from a 3 by 3 rotation matrix.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>matrix</strong> – A 3 by 3 rotation matrix.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The resulting Quaternion.</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">identity</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">q</span> <span class="o">=</span> <span class="n">Quaternion</span><span class="o">.</span><span class="n">from_rotation_matrix</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="quaternion.Quaternion.identity">
+<em class="property">classmethod </em><code class="descname">identity</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#quaternion.Quaternion.identity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the identity Quaternion.</p>
+<p class="rubric">Examples</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">q</span> <span class="o">=</span> <span class="n">Quaternion</span><span class="o">.</span><span class="n">identity</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="quaternion.Quaternion.inverse">
+<em class="property">classmethod </em><code class="descname">inverse</code><span class="sig-paren">(</span><em>q</em><span class="sig-paren">)</span><a class="headerlink" href="#quaternion.Quaternion.inverse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the inverse Quaternion.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>q</strong> – A Quaternion.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The resulting Quaternion.</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">=</span> <span class="n">Quaternion</span><span class="o">.</span><span class="n">inverse</span><span class="p">(</span><span class="n">q</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="quaternion.Quaternion.is_identity">
+<code class="descname">is_identity</code><span class="sig-paren">(</span><em>*</em>, <em>atol=1e-08</em><span class="sig-paren">)</span><a class="headerlink" href="#quaternion.Quaternion.is_identity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if the Quaternion is identity.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>atol</strong> – The absolute tolerance to use.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True if the Quaternion is identity, False otherwise.</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">q</span><span class="o">.</span><span class="n">is_identity</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="quaternion.Quaternion.is_pure">
+<code class="descname">is_pure</code><span class="sig-paren">(</span><em>*</em>, <em>atol=1e-08</em><span class="sig-paren">)</span><a class="headerlink" href="#quaternion.Quaternion.is_pure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if the Quaternion is purely imaginary.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>atol</strong> – The absolute tolerance to use.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True if the scalar part of the Quaternion is zero, False otherwise.</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">q</span><span class="o">.</span><span class="n">is_pure</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="quaternion.Quaternion.is_real">
+<code class="descname">is_real</code><span class="sig-paren">(</span><em>*</em>, <em>atol=1e-08</em><span class="sig-paren">)</span><a class="headerlink" href="#quaternion.Quaternion.is_real" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if the quaternion is purely real.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>atol</strong> – The absolute tolerance to use.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True if the vector part of the Quaternion is zero, False otherwise.</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">q</span><span class="o">.</span><span class="n">is_real</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="quaternion.Quaternion.is_unit">
+<code class="descname">is_unit</code><span class="sig-paren">(</span><em>*</em>, <em>atol=1e-08</em><span class="sig-paren">)</span><a class="headerlink" href="#quaternion.Quaternion.is_unit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if the Quaternion is unit.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>atol</strong> – The absolute tolerance to use.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True if the norm of the Quaternion is 1, False otherwise.</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">q</span><span class="o">.</span><span class="n">is_unit</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="quaternion.Quaternion.is_zero">
+<code class="descname">is_zero</code><span class="sig-paren">(</span><em>*</em>, <em>atol=1e-08</em><span class="sig-paren">)</span><a class="headerlink" href="#quaternion.Quaternion.is_zero" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if the Quaternion is zero.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>atol</strong> – The absolute tolerance to use.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True if the quaternion is zero, False otherwise.</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">q</span><span class="o">.</span><span class="n">is_zero</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="quaternion.Quaternion.lerp">
+<em class="property">classmethod </em><code class="descname">lerp</code><span class="sig-paren">(</span><em>q1</em>, <em>q2</em>, <em>t</em><span class="sig-paren">)</span><a class="headerlink" href="#quaternion.Quaternion.lerp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the linear interpolation of Quaternions q1 and q2, at time t.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>q1</strong> – A Quaternion.</li>
+<li><strong>q2</strong> – A Quaternion.</li>
+<li><strong>t</strong> – should range in [0,1].</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">The resulting Quaternion is between q1 and q2.(result is q1 when t=0 and q2 for t=1)</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">=</span> <span class="n">Quaternion</span><span class="o">.</span><span class="n">lerp</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="quaternion.Quaternion.ln">
+<em class="property">classmethod </em><code class="descname">ln</code><span class="sig-paren">(</span><em>q</em><span class="sig-paren">)</span><a class="headerlink" href="#quaternion.Quaternion.ln" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the logarithm of a Quaternion.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>q</strong> – A Quaternion.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The resulting Quaternion.</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">=</span> <span class="n">Quaternion</span><span class="o">.</span><span class="n">ln</span><span class="p">(</span><span class="n">q</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="quaternion.Quaternion.ln_u">
+<em class="property">classmethod </em><code class="descname">ln_u</code><span class="sig-paren">(</span><em>q</em><span class="sig-paren">)</span><a class="headerlink" href="#quaternion.Quaternion.ln_u" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the logarithm of a unit Quaternion.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>q</strong> – A unit Quaternion.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The resulting Quaternion.</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">=</span> <span class="n">Quaternion</span><span class="o">.</span><span class="n">ln_u</span><span class="p">(</span><span class="n">q</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="quaternion.Quaternion.norm">
+<code class="descname">norm</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#quaternion.Quaternion.norm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the norm of the Quaternion.</p>
+<p class="rubric">Examples</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">n</span> <span class="o">=</span> <span class="n">q</span><span class="o">.</span><span class="n">norm</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="quaternion.Quaternion.norm_squared">
+<code class="descname">norm_squared</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#quaternion.Quaternion.norm_squared" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the squared norm of the Quaternion.</p>
+<p class="rubric">Examples</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ns</span> <span class="o">=</span> <span class="n">q</span><span class="o">.</span><span class="n">norm_squared</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="quaternion.Quaternion.normalize">
+<em class="property">classmethod </em><code class="descname">normalize</code><span class="sig-paren">(</span><em>q</em><span class="sig-paren">)</span><a class="headerlink" href="#quaternion.Quaternion.normalize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the normalized version of a Quaternion.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>q</strong> – A Quaternion.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The resulting Quaternion.</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">=</span> <span class="n">Quaternion</span><span class="o">.</span><span class="n">normalize</span><span class="p">(</span><span class="n">q</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="quaternion.Quaternion.parts">
+<code class="descname">parts</code><a class="headerlink" href="#quaternion.Quaternion.parts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the scalar and vector part of the Quaternion.</p>
+<p class="rubric">Examples</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="p">,</span> <span class="n">v</span> <span class="o">=</span> <span class="n">q</span><span class="o">.</span><span class="n">parts</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="quaternion.Quaternion.pow">
+<em class="property">classmethod </em><code class="descname">pow</code><span class="sig-paren">(</span><em>q</em>, <em>exponent</em><span class="sig-paren">)</span><a class="headerlink" href="#quaternion.Quaternion.pow" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the power of a Quaternion specified by an “exponent” parameter.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>q</strong> – A Quaternion.</li>
+<li><strong>exponent</strong> – An exponent value.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">The resulting Quaternion.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">=</span> <span class="n">Quaternion</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="mf">2.</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="quaternion.Quaternion.pow_u">
+<em class="property">classmethod </em><code class="descname">pow_u</code><span class="sig-paren">(</span><em>q</em>, <em>exponent</em><span class="sig-paren">)</span><a class="headerlink" href="#quaternion.Quaternion.pow_u" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the power of an unit Quaternion specified by an “exponent” parameter.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>q</strong> – An unit Quaternion.</li>
+<li><strong>exponent</strong> – an exponent value.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">The resulting Quaternion.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">=</span> <span class="n">Quaternion</span><span class="o">.</span><span class="n">pow_u</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="mf">2.</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="quaternion.Quaternion.rotate">
+<em class="property">classmethod </em><code class="descname">rotate</code><span class="sig-paren">(</span><em>q</em>, <em>v</em><span class="sig-paren">)</span><a class="headerlink" href="#quaternion.Quaternion.rotate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the image of a vector by a Quaternion rotation.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>q</strong> – A Quaternion representing rotation.</li>
+<li><strong>v</strong> – The object like an array of length 3.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">The resulting vector.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">v</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">v</span> <span class="o">=</span> <span class="n">Quaternion</span><span class="o">.</span><span class="n">rotate</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="quaternion.Quaternion.rotation_shortest_arc">
+<em class="property">classmethod </em><code class="descname">rotation_shortest_arc</code><span class="sig-paren">(</span><em>v1</em>, <em>v2</em><span class="sig-paren">)</span><a class="headerlink" href="#quaternion.Quaternion.rotation_shortest_arc" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="quaternion.Quaternion.rotational_difference">
+<em class="property">classmethod </em><code class="descname">rotational_difference</code><span class="sig-paren">(</span><em>q1</em>, <em>q2</em><span class="sig-paren">)</span><a class="headerlink" href="#quaternion.Quaternion.rotational_difference" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="quaternion.Quaternion.scalar_part">
+<code class="descname">scalar_part</code><a class="headerlink" href="#quaternion.Quaternion.scalar_part" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the scalar part of the Quaternion.</p>
+<p class="rubric">Examples</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="n">q</span><span class="o">.</span><span class="n">scalar_part</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="quaternion.Quaternion.slerp">
+<em class="property">classmethod </em><code class="descname">slerp</code><span class="sig-paren">(</span><em>q1</em>, <em>q2</em>, <em>t</em>, <em>*</em>, <em>allow_flip=True</em><span class="sig-paren">)</span><a class="headerlink" href="#quaternion.Quaternion.slerp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the spherical linear interpolation of Quaternions q1 and q2, at time t.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>q1</strong> – An unit Quaternion.</li>
+<li><strong>q2</strong> – An unit Quaternion.</li>
+<li><strong>t</strong> – should range in [0,1].</li>
+<li><strong>allow_flip</strong> – True if interpolate along a shortest arc, False otherwise.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">The resulting Quaternion is between q1 and q2.(result is q1 when t=0 and q2 for t=1)</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">=</span> <span class="n">Quaternion</span><span class="o">.</span><span class="n">slerp</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="quaternion.Quaternion.squad">
+<em class="property">classmethod </em><code class="descname">squad</code><span class="sig-paren">(</span><em>p</em>, <em>q</em>, <em>a</em>, <em>b</em>, <em>t</em><span class="sig-paren">)</span><a class="headerlink" href="#quaternion.Quaternion.squad" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the spherical quadrangle interpolation of the two Quaternions p and q, at time t, using tangents a and b.</p>
+<p>Use <a class="reference internal" href="#quaternion.Quaternion.squad_tangent" title="quaternion.Quaternion.squad_tangent"><code class="xref py py-func docutils literal"><span class="pre">squad_tangent()</span></code></a> to define the Quaternion tangents a and b.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>p</strong> – An unit Quaternion.</li>
+<li><strong>q</strong> – An unit Quaternion.</li>
+<li><strong>a</strong> – A tangent Quaternion.</li>
+<li><strong>b</strong> – A tangent Quaternion.</li>
+<li><strong>t</strong> – should range in [0,1].</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">The resulting Quaternion is between p and q.(result is p when t=0 and q for t=1)</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">q_arr</span> <span class="o">=</span> <span class="p">[</span><span class="n">q0</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">qn</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">qN</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">squad_tangent</span><span class="p">(</span><span class="n">q_arr</span><span class="p">[</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">q_arr</span><span class="p">[</span><span class="n">n</span><span class="p">],</span> <span class="n">q_arr</span><span class="p">[</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">squad_tangent</span><span class="p">(</span><span class="n">q_arr</span><span class="p">[</span><span class="n">n</span><span class="p">],</span> <span class="n">q_arr</span><span class="p">[</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span> <span class="n">q_arr</span><span class="p">[</span><span class="n">n</span><span class="o">+</span><span class="mi">2</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">q</span> <span class="o">=</span> <span class="n">squad</span><span class="p">(</span><span class="n">q_arr</span><span class="p">[</span><span class="n">n</span><span class="p">],</span> <span class="n">q_arr</span><span class="p">[</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="quaternion.Quaternion.squad_tangent">
+<em class="property">classmethod </em><code class="descname">squad_tangent</code><span class="sig-paren">(</span><em>before</em>, <em>center</em>, <em>after</em><span class="sig-paren">)</span><a class="headerlink" href="#quaternion.Quaternion.squad_tangent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tangent Quaternion for “center”, defined by “before” and “after” Quaternions.</p>
+<p>Useful for smooth spline interpolation of Quaternion with <a class="reference internal" href="#quaternion.Quaternion.squad" title="quaternion.Quaternion.squad"><code class="xref py py-func docutils literal"><span class="pre">squad()</span></code></a> and <a class="reference internal" href="#quaternion.Quaternion.slerp" title="quaternion.Quaternion.slerp"><code class="xref py py-func docutils literal"><span class="pre">slerp()</span></code></a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>before</strong> – An unit Quaternion.</li>
+<li><strong>center</strong> – An unit Quaternion.</li>
+<li><strong>after</strong> – An unit Quaternion.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">The resulting tangent Quaternion.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="quaternion.Quaternion.to_axis_angle">
+<code class="descname">to_axis_angle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#quaternion.Quaternion.to_axis_angle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the axis vector and the angle (in radians) of the rotation represented by the Quaternion.</p>
+<p class="rubric">Examples</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">axis</span><span class="p">,</span> <span class="n">angle</span> <span class="o">=</span> <span class="n">q</span><span class="o">.</span><span class="n">to_axis_angle</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="quaternion.Quaternion.to_rotation_matrix">
+<code class="descname">to_rotation_matrix</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#quaternion.Quaternion.to_rotation_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the 3 by 3 rotation matrix associated with the Quaternion.</p>
+<p class="rubric">Examples</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">q</span><span class="o">.</span><span class="n">to_rotation_matrix</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="quaternion.Quaternion.vector_part">
+<code class="descname">vector_part</code><a class="headerlink" href="#quaternion.Quaternion.vector_part" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the vector part of the Quaternion.</p>
+<p class="rubric">Examples</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">v</span> <span class="o">=</span> <span class="n">q</span><span class="o">.</span><span class="n">vector_part</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Quaternion 0.9.1 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, Hasenpfote.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.6.
+    </div>
+  </body>
+</html>
