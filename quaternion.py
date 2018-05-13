@@ -15,6 +15,31 @@ class Quaternion:
     _VECTOR_PART = slice(1, 4)
 
     def __init__(self, object=None, *, copy=True):
+        '''Initialize the Quaternion.
+
+        Args:
+            object: The object can be specified as follows.
+
+                - Object like an array of length 4.
+
+                - `None`.
+
+                - A self class.
+            copy: True if copy an object of ndarray, otherwise False.
+
+        Examples:
+            >>> q = Quaternion(numpy.array([1., 2., 3., 4.]))
+            >>> q = Quaternion([1., 2., 3., 4.])
+            >>> q = Quaternion((1., 2., 3., 4.))
+            >>> q = Quaternion()
+            >>> q = Quaternion(q)
+
+            >>> arr = numpy.array([1., 2., 3., 4.])
+            >>> q = Quaternion(arr, copy=True)
+            >>> id(q._components) == id(arr) # False
+            >>> q = Quaternion(arr, copy=False)
+            >>> id(q._components) == id(arr) # True
+        '''
         if object is None:
             self._components = np.empty(self._SIZE)
         elif isinstance(object, self.__class__):
@@ -31,26 +56,85 @@ class Quaternion:
             raise TypeError
 
     def __add__(self, other):
+        '''Returns the Quaternion addition.
+
+        Args:
+            other: A Quaternion.
+
+        Returns:
+            The resulting Quaternion.
+
+        Examples:
+            >>> p = q + r
+        '''
         return self.__class__(self._components + other._components, copy=False)
 
     def __iadd__(self, other):
+        '''Add a Quaternion `other` to the Quaternion.
+
+        Args:
+            other: A Quaternion.
+
+        Examples:
+            >>> p += q
+        '''
         self._components += other._components
         return self
 
     def __sub__(self, other):
+        '''Returns the Quaternion subtraction.
+
+        Args:
+            other: A Quaternion.
+
+        Returns:
+            The resulting Quaternion.
+
+        Examples:
+            >>> p = q - r
+        '''
         return self.__class__(self._components - other._components, copy=False)
 
     def __isub__(self, other):
+        '''Subtract a Quaternion `other` from the Quaternion.
+
+        Args:
+            other: A Quaternion.
+
+        Examples:
+            >>> p -= q
+        '''
         self._components -= other._components
         return self
 
     def __mul__(self, other):
+        '''Returns the Quaternion multiplication or scalar multiplication.
+
+        Args:
+            other: A Quaternion or scalar.
+
+        Returns:
+            The resulting Quaternion.
+
+        Examples:
+            >>> p = q * r
+            >>> p = q * 2.
+        '''
         if isinstance(other, self.__class__):
             return self.__class__(self._multiplication_for_ndarray(self._components, other._components), copy=False)
         else:
             return self.__class__(self._components * other, copy=False)
 
     def __imul__(self, other):
+        '''Multiply the Quaternion by a Quaternion `other`.
+
+        Args:
+            other: A Quaternion.
+
+        Examples:
+            >>> p *= q
+            >>> p *= 2.
+        '''
         if isinstance(other, self.__class__):
             self._components[:] = self._multiplication_for_ndarray(self._components, other._components)
         else:
@@ -58,57 +142,143 @@ class Quaternion:
         return self
 
     def __rmul__(self, other):
+        '''Returns the scalar multiplication.
+
+        Args:
+            other: A scalar.
+
+        Returns:
+            The resulting Quaternion.
+
+        Examples:
+            >>> p = 2. * q
+        '''
         return self.__class__(self._components * other, copy=False)
 
     def __truediv__(self, other):
+        '''Returns the scalar division.
+
+        Args:
+            other: A scalar.
+
+        Returns:
+            The resulting Quaternion.
+
+        Examples:
+            >>> p = q / 2.
+        '''
         return self.__class__(self._components / other, copy=False)
 
     def __itruediv__(self, other):
+        '''Divide the Quaternion by a scalar `other`.
+
+        Args:
+            other: A Quaternion.
+
+        Examples:
+            >>> q /= 2.
+        '''
         self._components[:] = self._components / other
         return self
 
     def __pos__(self):
+        '''Returns the positive of the Quaternion.
+
+        Examples:
+            >>> p = +q
+        '''
         return self.__class__(+self._components, copy=False)
 
     def __neg__(self):
+        '''Returns the negative of the Quaternion.
+
+        Examples:
+            >>> p = -q
+        '''
         return self.__class__(-self._components, copy=False)
 
     def __str__(self):
+        '''Returns the components of the Quaternion as a string.
+
+        Examples:
+            >>> print(q)
+        '''
         return np.array_str(self._components)
 
     @property
     def components(self):
-        '''Returns the four components of the Quaternion.'''
+        '''Returns the four components of the Quaternion.
+
+        Examples:
+            >>> c = q.components
+        '''
         return self._components
 
     @components.setter
     def components(self, c):
-        '''Sets the four components of the Quaternion.'''
+        '''Sets the four components of the Quaternion.
+
+        Args:
+            c: The object like an array of length 4.
+
+        Examples:
+            >>> q.components = numpy.array([1., 2., 3., 4.])
+            >>> q.components = [1., 2., 3., 4.]
+            >>> q.components = (1., 2., 3., 4.)
+        '''
         self._components[:] = c
 
     @property
     def parts(self):
-        '''Returns the scalar and vector part of the Quaternion.'''
+        '''Returns the scalar and vector part of the Quaternion.
+
+        Examples:
+            >>> s, v = q.parts
+        '''
         return self._components[self._SCALAR_PART], self._components[self._VECTOR_PART]
 
     @property
     def scalar_part(self):
-        '''Returns the scalar part of the Quaternion.'''
+        '''Returns the scalar part of the Quaternion.
+
+        Examples:
+            >>> s = q.scalar_part
+        '''
         return self._components[self._SCALAR_PART]
 
     @scalar_part.setter
     def scalar_part(self, scalar):
-        '''Sets the scalar part of the Quaternion.'''
+        '''Sets the scalar part of the Quaternion.
+
+        Args:
+            scalar: A scalar value.
+
+        Examples:
+            >>> q.scalar_part = 2.
+        '''
         self._components[self._SCALAR_PART] = scalar
 
     @property
     def vector_part(self):
-        '''Returns the vector part of the Quaternion.'''
+        '''Returns the vector part of the Quaternion.
+
+        Examples:
+            >>> v = q.vector_part
+        '''
         return self._components[self._VECTOR_PART]
 
     @vector_part.setter
     def vector_part(self, vector):
-        '''Sets the vector part of the Quaternion.'''
+        '''Sets the vector part of the Quaternion.
+
+        Args:
+            vector: The object like an array of length 3.
+
+        Examples:
+            >>> q.vector_part = numpy.array([1., 2., 3.])
+            >>> q.vector_part = [1., 2., 3.]
+            >>> q.vector_part = (1., 2., 3.)
+        '''
         self._components[self._VECTOR_PART] = vector
 
     def is_zero(self, *, atol=1e-08):
@@ -119,6 +289,9 @@ class Quaternion:
 
         Returns:
             True if the quaternion is zero, False otherwise.
+
+        Examples:
+            >>> q.is_zero()
         '''
         return np.allclose(0., self._components, rtol=0., atol=atol)
 
@@ -130,6 +303,9 @@ class Quaternion:
 
         Returns:
             True if the Quaternion is identity, False otherwise.
+
+        Examples:
+            >>> q.is_identity()
         '''
         s, v = self.parts
         return np.isclose(1., s, rtol=0., atol=atol) and np.allclose(0., v, rtol=0., atol=atol)
@@ -142,6 +318,9 @@ class Quaternion:
 
         Returns:
             True if the norm of the Quaternion is 1, False otherwise.
+
+        Examples:
+            >>> q.is_unit()
         '''
         return np.isclose(1., self.norm(), rtol=0., atol=atol)
 
@@ -153,6 +332,9 @@ class Quaternion:
 
         Returns:
             True if the vector part of the Quaternion is zero, False otherwise.
+
+        Examples:
+            >>> q.is_real()
         '''
         _, v = self.parts
         return np.allclose(0., v, rtol=0., atol=atol)
@@ -165,20 +347,35 @@ class Quaternion:
 
         Returns:
             True if the scalar part of the Quaternion is zero, False otherwise.
+
+        Examples:
+            >>> q.is_pure()
         '''
         s, _ = self.parts
         return np.isclose(0., s, rtol=0., atol=atol)
 
     def norm_squared(self):
-        '''Returns the squared norm of the Quaternion.'''
+        '''Returns the squared norm of the Quaternion.
+
+        Examples:
+            >>> ns = q.norm_squared()
+        '''
         return np.dot(self._components, self._components)
 
     def norm(self):
-        '''Returns the norm of the Quaternion.'''
+        '''Returns the norm of the Quaternion.
+
+        Examples:
+            >>> n = q.norm()
+        '''
         return np.linalg.norm(self._components)
 
     def to_axis_angle(self):
-        '''Returns the axis vector and the angle (in radians) of the rotation represented by the Quaternion.'''
+        '''Returns the axis vector and the angle (in radians) of the rotation represented by the Quaternion.
+
+        Examples:
+            >>> axis, angle = q.to_axis_angle()
+        '''
         s, v = self.parts
         n = np.linalg.norm(v)
         if np.isclose(0., n, rtol=0., atol=1e-09):
@@ -188,7 +385,11 @@ class Quaternion:
         return v * rcp_n, 2. * math.atan2(n, s)
 
     def to_rotation_matrix(self):
-        '''Returns the 3 by 3 rotation matrix associated with the Quaternion.'''
+        '''Returns the 3 by 3 rotation matrix associated with the Quaternion.
+
+        Examples:
+            >>> m = q.to_rotation_matrix()
+        '''
         s, v = self.parts
         a = v * v
         b = v * np.take(v, (1, 2, 0))
@@ -202,6 +403,20 @@ class Quaternion:
 
     @classmethod
     def equals(cls, q1, q2, *, rtol=1e-05, atol=1e-08):
+        '''Whether two Quaternions are approximately equal.
+
+        Args:
+            q1: A Quaternion.
+            q2: A Quaternion.
+            rtol: The relative tolerance to use.
+            atol: The absolute tolerance to use.
+
+        Returns:
+            True if both Quaternions are approximately equal, False otherwise.
+
+        Examples:
+            >>> Quaternion.equals(p, q)
+        '''
         return np.allclose(q1._components, q2._components, rtol=rtol, atol=atol)
 
     @classmethod
@@ -209,41 +424,89 @@ class Quaternion:
         '''Check if both Quaternions are represent the same rotation.
 
         Args:
-            q1:
-            q2:
+            q1: An unit Quaternion.
+            q2: An unit Quaternion.
             atol: The absolute tolerance to use.
 
         Returns:
             True if both Quaternions are represent the same rotation, False otherwise.
+
+        Examples:
+            >>> Quaternion.are_same_rotation(p, q)
         '''
         return np.isclose(1., abs(cls.dot(q1, q2)), rtol=0., atol=atol)
 
     @classmethod
     def identity(cls):
-        '''Returns the identity Quaternion.'''
+        '''Returns the identity Quaternion.
+
+        Examples:
+            >>> q = Quaternion.identity()
+        '''
         return cls(cls._make_ndarray_by_parts(1., [0., 0., 0.]), copy=False)
 
     @classmethod
     def inverse(cls, q):
-        '''Returns the inverse Quaternion.'''
+        '''Returns the inverse Quaternion.
+
+        Args:
+            q: A Quaternion.
+
+        Returns:
+            The resulting Quaternion.
+
+        Examples:
+            >>> p = Quaternion.inverse(q)
+        '''
         rcp_nsq = 1. / q.norm_squared()
         s, v = q.parts
         return cls(cls._make_ndarray_by_parts(s * rcp_nsq, -v * rcp_nsq), copy=False)
 
     @classmethod
     def conjugate(cls, q):
-        '''Returns the conjugate Quaternion.'''
+        '''Returns the conjugate Quaternion.
+
+        Args:
+            q: A Quaternion.
+
+        Returns:
+            The resulting Quaternion.
+
+        Examples:
+            >>> p = Quaternion.conjugate(q)
+        '''
         s, v = q.parts
         return cls(cls._make_ndarray_by_parts(s, -v), copy=False)
 
     @classmethod
     def dot(cls, q1, q2):
-        '''Returns the dot product of two Quaternions.'''
+        '''Returns the dot product of two Quaternions.
+
+        Args:
+            q1: A Quaternion.
+            q2: A Quaternion.
+
+        Returns:
+            The resulting scalar value.
+
+        Examples:
+            >>> Quaternion.dot(p, q)
+        '''
         return np.dot(q1._components, q2._components)
 
     @classmethod
     def ln(cls, q):
-        '''Returns the logarithm of a Quaternion.'''
+        '''Returns the logarithm of a Quaternion.
+
+        Args:
+            q: A Quaternion.
+
+        Returns:
+            The resulting Quaternion.
+
+        Examples:
+            >>> p = Quaternion.ln(q)
+        '''
         s, v = q.parts
         vn = np.linalg.norm(v)
         phi = math.atan2(vn, s)
@@ -257,7 +520,17 @@ class Quaternion:
 
     @classmethod
     def ln_u(cls, q):
-        '''Returns the logarithm of a unit Quaternion.'''
+        '''Returns the logarithm of a unit Quaternion.
+
+        Args:
+            q: A unit Quaternion.
+
+        Returns:
+            The resulting Quaternion.
+
+        Examples:
+            >>> p = Quaternion.ln_u(q)
+        '''
         s, v = q.parts
         vn = np.linalg.norm(v)
         phi = math.atan2(vn, s)
@@ -271,7 +544,17 @@ class Quaternion:
 
     @classmethod
     def exp(cls, q):
-        '''Returns the exponential of a Quaternion.'''
+        '''Returns the exponential of a Quaternion.
+
+        Args:
+            q: A Quaternion.
+
+        Returns:
+            The resulting Quaternion.
+
+        Examples:
+            >>> p = Quaternion.exp(q)
+        '''
         s, v = q.parts
         vn = np.linalg.norm(v)
         if np.isclose(0., vn, rtol=0., atol=1e-07):
@@ -284,7 +567,17 @@ class Quaternion:
 
     @classmethod
     def exp_p(cls, q):
-        '''Returns the exponential of a purely imaginary Quaternion.'''
+        '''Returns the exponential of a purely imaginary Quaternion.
+
+        Args:
+            q: A purely imaginary Quaternion.
+
+        Returns:
+            The resulting Quaternion.
+
+        Examples:
+            >>> p = Quaternion.exp_p(q)
+        '''
         _, v = q.parts
         vn = np.linalg.norm(v)
         if np.isclose(0., vn, rtol=0., atol=1e-07):
@@ -296,17 +589,49 @@ class Quaternion:
 
     @classmethod
     def pow(cls, q, exponent):
-        '''Returns the power of a Quaternion specified by an "exponent" parameter.'''
+        '''Returns the power of a Quaternion specified by an "exponent" parameter.
+
+        Args:
+            q: A Quaternion.
+            exponent: An exponent value.
+
+        Returns:
+            The resulting Quaternion.
+
+        Examples:
+            >>> p = Quaternion.pow(q, 2.)
+        '''
         return cls.exp(cls.ln(q) * exponent)
 
     @classmethod
     def pow_u(cls, q, exponent):
-        '''Returns the power of an unit Quaternion specified by an "exponent" parameter.'''
+        '''Returns the power of an unit Quaternion specified by an "exponent" parameter.
+
+        Args:
+            q: An unit Quaternion.
+            exponent: an exponent value.
+
+        Returns:
+            The resulting Quaternion.
+
+        Examples:
+            >>> p = Quaternion.pow_u(q, 2.)
+        '''
         return cls.exp_p(cls.ln_u(q) * exponent)
 
     @classmethod
     def normalize(cls, q):
-        '''Returns the normalized version of a Quaternion.'''
+        '''Returns the normalized version of a Quaternion.
+
+        Args:
+            q: A Quaternion.
+
+        Returns:
+            The resulting Quaternion.
+
+        Examples:
+            >>> p = Quaternion.normalize(q)
+        '''
         return q / q.norm()
 
     @classmethod
@@ -319,13 +644,29 @@ class Quaternion:
 
         Returns:
             The resulting Quaternion.
+
+        Examples:
+            >>> axis = numpy.array([1., 0., 0.])
+            >>> angle = math.radians(60.)
+            >>> q = Quaternion.from_axis_angle(axis, angle)
         '''
         half_angle = angle * 0.5
         return cls(cls._make_ndarray_by_parts(math.cos(half_angle), math.sin(half_angle) * axis), copy=False)
 
     @classmethod
     def from_rotation_matrix(cls, matrix):
-        '''Returns thr Quaternion from a 3 by 3 rotation matrix.'''
+        '''Returns the Quaternion from a 3 by 3 rotation matrix.
+
+        Args:
+            matrix: A 3 by 3 rotation matrix.
+
+        Returns:
+            The resulting Quaternion.
+
+        Examples:
+            >>> m = numpy.identity(3)
+            >>> q = Quaternion.from_rotation_matrix(m)
+        '''
         assert matrix.shape == (3, 3), 'matrix must be a 3 by 3 matrix.'
 
         tr = 1. + np.trace(matrix)
@@ -362,7 +703,19 @@ class Quaternion:
 
     @classmethod
     def rotate(cls, q, v):
-        '''Returns the image of a Vector by a Quaternion rotation.'''
+        '''Returns the image of a vector by a Quaternion rotation.
+
+        Args:
+            q: A Quaternion representing rotation.
+            v: The object like an array of length 3.
+
+        Returns:
+            The resulting vector.
+
+        Examples:
+            >>> v = numpy.array([1., 2., 3.])
+            >>> v = Quaternion.rotate(q, v)
+        '''
         qv = cls(cls._make_ndarray_by_parts(0., v), copy=False)
         r = q * qv * cls.conjugate(q)
         return r.vector_part
@@ -383,12 +736,15 @@ class Quaternion:
         '''Returns the linear interpolation of Quaternions q1 and q2, at time t.
 
         Args:
-            q1:
-            q2:
+            q1: A Quaternion.
+            q2: A Quaternion.
             t: should range in [0,1].
 
         Returns:
             The resulting Quaternion is between q1 and q2.(result is q1 when t=0 and q2 for t=1)
+
+        Examples:
+            >>> p = Quaternion.lerp(q, r, t)
         '''
         return cls(q1._components + t * (q2._components - q1._components), copy=False)
 
@@ -397,13 +753,16 @@ class Quaternion:
         '''Returns the spherical linear interpolation of Quaternions q1 and q2, at time t.
 
         Args:
-            q1:
-            q2:
+            q1: An unit Quaternion.
+            q2: An unit Quaternion.
             t: should range in [0,1].
             allow_flip: True if interpolate along a shortest arc, False otherwise.
 
         Returns:
             The resulting Quaternion is between q1 and q2.(result is q1 when t=0 and q2 for t=1)
+
+        Examples:
+            >>> p = Quaternion.slerp(q, r, t)
         '''
         flipped = False
         cos_t = cls.dot(q1, q2)
@@ -433,14 +792,20 @@ class Quaternion:
         Use :func:`squad_tangent() <quaternion.Quaternion.squad_tangent>` to define the Quaternion tangents a and b.
 
         Args:
-            p:
-            q:
-            a:
-            b:
+            p: An unit Quaternion.
+            q: An unit Quaternion.
+            a: A tangent Quaternion.
+            b: A tangent Quaternion.
             t: should range in [0,1].
 
         Returns:
             The resulting Quaternion is between p and q.(result is p when t=0 and q for t=1)
+
+        Examples:
+            >>> q_arr = [q0, ..., qn, ..., qN]
+            >>> a = squad_tangent(q_arr[n-1], q_arr[n], q_arr[n+1])
+            >>> b = squad_tangent(q_arr[n], q_arr[n+1], q_arr[n+2])
+            >>> q = squad(q_arr[n], q_arr[n+1], a, b, t)
         '''
         return cls.slerp(cls.slerp(p, q, t, allow_flip=False), cls.slerp(a, b, t, allow_flip=False), 2. * t * (1. - t), allow_flip=False)
 
@@ -451,9 +816,9 @@ class Quaternion:
         Useful for smooth spline interpolation of Quaternion with :func:`squad() <quaternion.Quaternion.squad>` and :func:`slerp() <quaternion.Quaternion.slerp>`.
 
         Args:
-            before:
-            center:
-            after:
+            before: An unit Quaternion.
+            center: An unit Quaternion.
+            after: An unit Quaternion.
 
         Returns:
             The resulting tangent Quaternion.
