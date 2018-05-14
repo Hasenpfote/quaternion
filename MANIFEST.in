@@ -1,4 +1,7 @@
 include LICENSE
 include README.md
+include requirements.txt
+include requirements-test.txt
+include requirements-doc.txt
 recursive-include doc *.*
 recursive-include example *.ipynb
