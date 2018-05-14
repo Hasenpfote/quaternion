@@ -197,11 +197,19 @@ class Quaternion:
         '''
         return self.__class__(-self._components, copy=False)
 
+    def __repr__(self):
+        '''Returns the components of the Quaternion as a string.
+
+        Examples:
+            >>> repr(q)
+        '''
+        return '{0}({1})'.format(self.__class__.__name__, np.array_str(self._components))
+
     def __str__(self):
         '''Returns the components of the Quaternion as a string.
 
         Examples:
-            >>> print(q)
+            >>> str(q)
         '''
         return np.array_str(self._components)
 

@@ -154,6 +154,12 @@ class TestQuaternion(TestCase):
         self.assertTrue(np.allclose(actual._components, expected))
         self.assertTrue(id(actual.components) != id(q._components))
 
+    def test_repr(self):
+        q = Quaternion([1., 2., 3., 4.])
+        s = q.__repr__()
+        self.assertTrue(isinstance(s, str))
+        self.assertTrue(s == '{0}({1})'.format(Quaternion.__class__.__name__, '[1. 2. 3. 4.]'))
+
     def test_str(self):
         q = Quaternion([1., 2., 3., 4.])
         s = q.__str__()
