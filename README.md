@@ -19,7 +19,7 @@ This package provides a class for manipulating quaternion objects.
     >>> q1 * q2
     Quaternion([-60.  12.  30.  24.])
 
-Please refer to [the reference](doc/index.html) for the details.
+Please refer to [the reference](https://hasenpfote.github.io/quaternion/) for the details.
 
 ## License  
 This software is released under the MIT License, see LICENSE.
