@@ -203,7 +203,10 @@ class Quaternion:
         Examples:
             >>> repr(q)
         '''
-        return '{0}({1})'.format(self.__class__.__name__, np.array_str(self._components))
+        return '{0}({1})'.format(
+            self.__class__.__name__,
+            self.__str__()
+        )
 
     def __str__(self):
         '''Returns the components of the Quaternion as a string.
@@ -211,7 +214,12 @@ class Quaternion:
         Examples:
             >>> str(q)
         '''
-        return np.array_str(self._components)
+        return '[{0:.8} {1:.8} {2:.8} {3:.8}]'.format(
+            self._components[0],
+            self._components[1],
+            self._components[2],
+            self._components[3]
+        )
 
     @property
     def components(self):
