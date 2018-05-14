@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/Hasenpfote/quaternion.svg?branch=master)](https://travis-ci.org/Hasenpfote/quaternion)  
+
 Quaternion
 ==========
 
