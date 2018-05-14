@@ -158,13 +158,14 @@ class TestQuaternion(TestCase):
         q = Quaternion([1., 2., 3., 4.])
         s = q.__repr__()
         self.assertTrue(isinstance(s, str))
-        self.assertTrue(s == '{0}({1})'.format(q.__class__.__name__, '[1. 2. 3. 4.]'))
+        print(s)
+        self.assertTrue(s == '{0}({1})'.format(q.__class__.__name__, '[1.0 2.0 3.0 4.0]'))
 
     def test_str(self):
         q = Quaternion([1., 2., 3., 4.])
         s = q.__str__()
         self.assertTrue(isinstance(s, str))
-        self.assertTrue(s == '[1. 2. 3. 4.]')
+        self.assertTrue(s == '[1.0 2.0 3.0 4.0]')
 
     def test_components_with_ndarray(self):
         actual = Quaternion()
@@ -302,7 +303,7 @@ class TestQuaternion(TestCase):
     def test_is_unit(self):
         q = Quaternion([1., 0., 0., 0.])
         ret = q.is_unit()
-        self.assertTrue(isinstance(ret, np.bool_))
+        self.assertTrue(isinstance(ret, (bool, np.bool_)))
         self.assertTrue(ret)
 
         q = Quaternion([1., 2., 3., 4.])
@@ -320,7 +321,7 @@ class TestQuaternion(TestCase):
     def test_is_pure(self):
         q = Quaternion([0., 1., 2., 3.])
         ret = q.is_pure()
-        self.assertTrue(isinstance(ret, np.bool_))
+        self.assertTrue(isinstance(ret, (bool, np.bool_)))
         self.assertTrue(ret)
 
         q = Quaternion([1., 2., 3., 4.])
@@ -396,19 +397,19 @@ class TestQuaternion(TestCase):
         q1 = Quaternion([ 1., 0., 0., 0.])
         q2 = Quaternion([-1., 0., 0., 0.]) # q2 = -q1
         check = Quaternion.are_same_rotation(q1, q2)
-        self.assertTrue(isinstance(check, np.bool_))
+        self.assertTrue(isinstance(check, (bool, np.bool_)))
         self.assertTrue(check)
 
         q1 = Quaternion([ 0.8660254037844387,  0.5, 0., 0.]) # axis=[ 1,0,0] deg=60
         q2 = Quaternion([-0.8660254037844387, -0.5, 0., 0.]) # axis=[-1,0,0] deg=300
         check = Quaternion.are_same_rotation(q1, q2)
-        self.assertTrue(isinstance(check, np.bool_))
+        self.assertTrue(isinstance(check, (bool, np.bool_)))
         self.assertTrue(check)
 
         q1 = Quaternion([0.9659258262890683, 0.25881904510252074, 0., 0.]) # axis=[1,0,0] deg=30
         q2 = Quaternion([0.7071067811865476, 0.7071067811865476, 0., 0.]) # axis=[1,0,0] deg=90
         check = Quaternion.are_same_rotation(q1, q2)
-        self.assertTrue(isinstance(check, np.bool_))
+        self.assertTrue(isinstance(check, (bool, np.bool_)))
         self.assertFalse(check)
 
     def test_identity(self):
