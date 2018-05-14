@@ -158,7 +158,7 @@ class TestQuaternion(TestCase):
         q = Quaternion([1., 2., 3., 4.])
         s = q.__repr__()
         self.assertTrue(isinstance(s, str))
-        self.assertTrue(s == '{0}({1})'.format(Quaternion.__class__.__name__, '[1. 2. 3. 4.]'))
+        self.assertTrue(s == '{0}({1})'.format(q.__class__.__name__, '[1. 2. 3. 4.]'))
 
     def test_str(self):
         q = Quaternion([1., 2., 3., 4.])
@@ -698,23 +698,23 @@ class TestQuaternion(TestCase):
         self.assertTrue(self.are_same_rotation(actual._components, expected))
 
     def test_squad(self):
-        q1 = Quaternion([1., 2., 3., 4.])
-        q2 = Quaternion([1., 2., 3., 4.])
-        t1 = Quaternion([1., 2., 3., 4.])
-        t2 = Quaternion([1., 2., 3., 4.])
-        q = Quaternion.squad(q1, q2, t1, t2, 0.5)
-        self.assertTrue(isinstance(q, Quaternion))
-
-        self.fail()
+        expected = np.array([1., 0., 0., 0.])
+        q1 = Quaternion([1., 0., 0., 0.])
+        q2 = Quaternion([1., 0., 0., 0.])
+        t1 = Quaternion([1., 0., 0., 0.])
+        t2 = Quaternion([1., 0., 0., 0.])
+        actual = Quaternion.squad(q1, q2, t1, t2, 0.5)
+        self.assertTrue(isinstance(actual, Quaternion))
+        self.assertTrue(np.allclose(actual._components, expected))
 
     def test_squad_tangent(self):
-        p = Quaternion([1., 2., 3., 4.])
-        c = Quaternion([1., 2., 3., 4.])
-        n = Quaternion([1., 2., 3., 4.])
-        q = Quaternion.squad_tangent(p, c, n)
-        self.assertTrue(isinstance(q, Quaternion))
-
-        self.fail()
+        expected = np.array([1., 0., 0., 0.])
+        q0 = Quaternion([1., 0., 0., 0.])
+        q1 = Quaternion([1., 0., 0., 0.])
+        q2 = Quaternion([1., 0., 0., 0.])
+        actual = Quaternion.squad_tangent(q0, q1, q2)
+        self.assertTrue(isinstance(actual, Quaternion))
+        self.assertTrue(np.allclose(actual._components, expected))
 
     def test__make_ndarray_by_parts_with_ndarray(self):
         s, v = 1., np.array([2., 3., 4.])
