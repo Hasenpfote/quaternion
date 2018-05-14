@@ -10,9 +10,14 @@ This package provides a class for manipulating quaternion objects.
 ## Installation  
     python setup.py install
 
-or  
+## Usage
+    >>> from quaternion import Quaternion
+    >>> q1 = Quaternion([1., 2., 3., 4.])
+    >>> q2 = Quaternion([5., 6., 7., 8.])
+    >>> q1 * q2
+    Quaternion([-60.  12.  30.  24.])
 
-    pip install dist/quaternion-0.9.0.tar.gz
+Please refer to [the reference](doc/index.html) for the details.
 
 ## License  
 This software is released under the MIT License, see LICENSE.
