@@ -11,4 +11,4 @@ install:
   - pip install -r requirements-test.txt
 
 script:
-  - nosetests -v --with-coverage --cover-package=quaternion
+  - nosetests -v --with-coverage --cover-erase --cover-package=quaternion
