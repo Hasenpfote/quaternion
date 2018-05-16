@@ -47,13 +47,15 @@ class Quaternion:
         elif isinstance(object, np.ndarray):
             if object.shape != (self._SIZE,):
                 raise ValueError
-            self._components = np.array(object, copy=copy)
+            # Force the type to float64.
+            self._components = np.array(object, dtype=np.float64, copy=copy)
         elif isinstance(object, (list, tuple)):
             if len(object) != self._SIZE:
                 raise ValueError
             self._components = np.array(object)
         else:
             raise TypeError
+        assert self._components.dtype == np.float64, 'dtype must be float64.'
 
     def __add__(self, other):
         '''Returns the Quaternion addition.
@@ -662,12 +664,13 @@ class Quaternion:
             The resulting Quaternion.
 
         Examples:
-            >>> axis = numpy.array([1., 0., 0.])
+            >>> axis = numpy.array([1., 0., 0.]) # or axis = [1., 0., 0.] or axis = (1., 0., 0.)
             >>> angle = math.radians(60.)
             >>> q = Quaternion.from_axis_angle(axis, angle)
         '''
+        _axis = np.array(axis, dtype=np.float64, copy=False) # Force the type to float64.
         half_angle = angle * 0.5
-        return cls(cls._make_ndarray_by_parts(math.cos(half_angle), math.sin(half_angle) * axis), copy=False)
+        return cls(cls._make_ndarray_by_parts(math.cos(half_angle), math.sin(half_angle) * _axis), copy=False)
 
     @classmethod
     def from_rotation_matrix(cls, matrix):
@@ -683,37 +686,38 @@ class Quaternion:
             >>> m = numpy.identity(3)
             >>> q = Quaternion.from_rotation_matrix(m)
         '''
-        assert matrix.shape == (3, 3), 'matrix must be a 3 by 3 matrix.'
+        _matrix = np.array(matrix, dtype=np.float64, copy=False) # Force the type to float64.
+        assert _matrix.shape == (3, 3), 'matrix must be a 3 by 3 matrix.'
 
-        tr = 1. + np.trace(matrix)
+        tr = 1. + np.trace(_matrix)
         if tr >= 1.:
             # When the absolute value of w is maximum.
             w = math.sqrt(tr) * 0.5
             rcp_4w = 1. / (4. * w)  # 1/4|w|
-            x = (matrix[1, 2] - matrix[2, 1]) * rcp_4w  # 4wx/4|w|
-            y = (matrix[2, 0] - matrix[0, 2]) * rcp_4w  # 4wy/4|w|
-            z = (matrix[0, 1] - matrix[1, 0]) * rcp_4w  # 4wz/4|w|
-        elif (matrix[0, 0] > matrix[1, 1]) and (matrix[0, 0] > matrix[2, 2]):
+            x = (_matrix[1, 2] - _matrix[2, 1]) * rcp_4w  # 4wx/4|w|
+            y = (_matrix[2, 0] - _matrix[0, 2]) * rcp_4w  # 4wy/4|w|
+            z = (_matrix[0, 1] - _matrix[1, 0]) * rcp_4w  # 4wz/4|w|
+        elif (_matrix[0, 0] > _matrix[1, 1]) and (_matrix[0, 0] > _matrix[2, 2]):
             # When the absolute value of x is maximum.
-            x = math.sqrt(matrix[0, 0] - matrix[1, 1] - matrix[2, 2] + 1.) * 0.5
+            x = math.sqrt(_matrix[0, 0] - _matrix[1, 1] - _matrix[2, 2] + 1.) * 0.5
             rcp_4x = 1. / (4. * x)  # 1/4|x|
-            y = (matrix[1, 0] + matrix[0, 1]) * rcp_4x  # 4xy/4|x|
-            z = (matrix[2, 0] + matrix[0, 2]) * rcp_4x  # 4xz/4|x|
-            w = (matrix[1, 2] - matrix[2, 1]) * rcp_4x  # 4wx/4|x|
-        elif (matrix[1, 1] > matrix[2, 2]):
+            y = (_matrix[1, 0] + _matrix[0, 1]) * rcp_4x  # 4xy/4|x|
+            z = (_matrix[2, 0] + _matrix[0, 2]) * rcp_4x  # 4xz/4|x|
+            w = (_matrix[1, 2] - _matrix[2, 1]) * rcp_4x  # 4wx/4|x|
+        elif (_matrix[1, 1] > _matrix[2, 2]):
             # When the absolute value of y is maximum.
             y = math.sqrt(matrix[1, 1] - matrix[2, 2] - matrix[0, 0] + 1.) * 0.5
             rcp_4y = 1. / (4. * y)  # 1/4|y|
-            z = (matrix[1, 2] + matrix[2, 1]) * rcp_4y  # 4yz/4|y|
-            w = (matrix[2, 0] - matrix[0, 2]) * rcp_4y  # 4wy/4|y|
-            x = (matrix[1, 0] + matrix[0, 1]) * rcp_4y  # 4xy/4|y|
+            z = (_matrix[1, 2] + _matrix[2, 1]) * rcp_4y  # 4yz/4|y|
+            w = (_matrix[2, 0] - _matrix[0, 2]) * rcp_4y  # 4wy/4|y|
+            x = (_matrix[1, 0] + _matrix[0, 1]) * rcp_4y  # 4xy/4|y|
         else:
             # When the absolute value of z is maximum.
-            z = math.sqrt(matrix[2, 2] - matrix[0, 0] - matrix[1, 1] + 1.) * 0.5
+            z = math.sqrt(_matrix[2, 2] - _matrix[0, 0] - _matrix[1, 1] + 1.) * 0.5
             rcp_4z = 1. / (4. * z)  # 1/4|z|
-            x = (matrix[2, 0] + matrix[0, 2]) * rcp_4z  # 4xz/4|z|
-            y = (matrix[1, 2] + matrix[2, 1]) * rcp_4z  # 4yz/4|z|
-            w = (matrix[0, 1] - matrix[1, 0]) * rcp_4z  # 4wz/4|z|
+            x = (_matrix[2, 0] + _matrix[0, 2]) * rcp_4z  # 4xz/4|z|
+            y = (_matrix[1, 2] + _matrix[2, 1]) * rcp_4z  # 4yz/4|z|
+            w = (_matrix[0, 1] - _matrix[1, 0]) * rcp_4z  # 4wz/4|z|
 
         return cls(cls._make_ndarray_by_parts(w, [x, y, z]), copy=False)
 
@@ -729,7 +733,7 @@ class Quaternion:
             The resulting vector.
 
         Examples:
-            >>> v = numpy.array([1., 2., 3.])
+            >>> v = numpy.array([1., 2., 3.]) # or v = [1., 2., 3.] or v = (1., 2., 3.)
             >>> v = Quaternion.rotate(q, v)
         '''
         qv = cls(cls._make_ndarray_by_parts(0., v), copy=False)
@@ -738,9 +742,12 @@ class Quaternion:
 
     @classmethod
     def rotation_shortest_arc(cls, v1, v2):
-        d = np.dot(v1, v2)
+        # Force the type to float64.
+        _v1 = np.array(v1, dtype=np.float64, copy=False)
+        _v2 = np.array(v2, dtype=np.float64, copy=False)
+        d = np.dot(_v1, _v2)
         s = math.sqrt((1. + d) * 2.)
-        c = cls._cross_for_ndarray(v1, v2)
+        c = cls._cross_for_ndarray(_v1, _v2)
         return cls(cls._make_ndarray_by_parts(s * 0.5, c / s), copy=False)
 
     @classmethod
