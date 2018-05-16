@@ -23,7 +23,7 @@ def _long_description():
 if __name__ == '__main__':
     setup(
         name='quaternion',
-        version='0.9.4',
+        version='0.10.0',
         description='This package provides a class for manipulating quaternion objects.',
         long_description=_long_description(),
         author='Hasenpfote',
