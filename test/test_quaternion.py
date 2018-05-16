@@ -158,7 +158,6 @@ class TestQuaternion(TestCase):
         q = Quaternion([1., 2., 3., 4.])
         s = q.__repr__()
         self.assertTrue(isinstance(s, str))
-        print(s)
         self.assertTrue(s == '{0}({1})'.format(q.__class__.__name__, '[1.0 2.0 3.0 4.0]'))
 
     def test_str(self):
