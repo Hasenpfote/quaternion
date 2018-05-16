@@ -706,7 +706,7 @@ class Quaternion:
             w = (_matrix[1, 2] - _matrix[2, 1]) * rcp_4x  # 4wx/4|x|
         elif (_matrix[1, 1] > _matrix[2, 2]):
             # When the absolute value of y is maximum.
-            y = math.sqrt(matrix[1, 1] - matrix[2, 2] - matrix[0, 0] + 1.) * 0.5
+            y = math.sqrt(_matrix[1, 1] - _matrix[2, 2] - _matrix[0, 0] + 1.) * 0.5
             rcp_4y = 1. / (4. * y)  # 1/4|y|
             z = (_matrix[1, 2] + _matrix[2, 1]) * rcp_4y  # 4yz/4|y|
             w = (_matrix[2, 0] - _matrix[0, 2]) * rcp_4y  # 4wy/4|y|
