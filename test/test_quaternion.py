@@ -604,6 +604,11 @@ class TestQuaternion(TestCase):
         self.assertTrue(isinstance(actual, Quaternion))
         self.assertTrue(self.are_same_rotation(actual._components, expected))
 
+    def test_random(self):
+        q = Quaternion.random()
+        self.assertTrue(isinstance(q, Quaternion))
+        self.assertTrue(np.isclose(np.linalg.norm(q._components),1.))
+
     def test_lerp(self):
         expected = np.array([1.25, 2.25, 3.25, 4.25])
         q1 = Quaternion([1., 2., 3., 4.])

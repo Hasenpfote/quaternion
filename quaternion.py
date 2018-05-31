@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 import math
+import random
 import numpy as np
 
 
@@ -753,6 +754,26 @@ class Quaternion:
     @classmethod
     def rotational_difference(cls, q1, q2):
         return cls.conjugate(q1) * q2
+
+    @classmethod
+    def random(cls):
+        '''Returns a random unit Quaternion.
+
+        Returns:
+            The resulting Quaternion.
+
+        See Also:
+            http://planning.cs.uiuc.edu/node198.html
+        '''
+        u1 = random.uniform(0., 1.)
+        r1 = math.sqrt(1. - u1)
+        r2 = math.sqrt(u1)
+        t1 = 2. * math.pi * random.uniform(0., 1.) # u2
+        t2 = 2. * math.pi * random.uniform(0., 1.) # u3
+        return cls(cls._make_ndarray_by_parts(r2 * math.cos(t2),
+                                              [r1 * math.sin(t1),
+                                               r1 * math.cos(t1),
+                                               r2 * math.sin(t2)]), copy=False)
 
     @classmethod
     def lerp(cls, q1, q2, t):
