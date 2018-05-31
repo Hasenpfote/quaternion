@@ -1,2 +1,3 @@
 # -*- coding: utf-8 -*-
-from quaternion.version import __version__, VERSION
+from .version import __version__, VERSION
+from .quaternion import Quaternion
