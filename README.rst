@@ -41,5 +41,5 @@ This software is released under the MIT License, see LICENSE.
 
 .. |License| image:: https://img.shields.io/badge/license-MIT-brightgreen.svg
    :target: LICENSE
-.. |Build Status| image:: https://travis-ci.org/Hasenpfote/quaternion.svg?branch=master
-   :target: https://travis-ci.org/Hasenpfote/quaternion
+.. |Build Status| image:: https://travis-ci.com/Hasenpfote/quaternion.svg?branch=master
+   :target: https://travis-ci.com/Hasenpfote/quaternion

@@ -1,16 +1,16 @@
 [![License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](LICENSE)
-[![Build Status](https://travis-ci.org/Hasenpfote/quaternion.svg?branch=master)](https://travis-ci.org/Hasenpfote/quaternion)  
+[![Build Status](https://travis-ci.com/Hasenpfote/quaternion.svg?branch=master)](https://travis-ci.com/Hasenpfote/quaternion)
 
 Quaternion
 ==========
 
-## About  
+## About
 This package provides a class for manipulating quaternion objects.
 
-## Compatibility  
+## Compatibility
 * Python 3.x
 
-## Installation  
+## Installation
     python setup.py install
 
 ## Usage
@@ -22,5 +22,5 @@ This package provides a class for manipulating quaternion objects.
 
 Please refer to [the reference](https://hasenpfote.github.io/quaternion/) for the details.
 
-## License  
+## License
 This software is released under the MIT License, see LICENSE.
