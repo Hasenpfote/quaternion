@@ -56,7 +56,7 @@ if __name__ == '__main__':
             'Topic :: Scientific/Engineering :: Mathematics',
             'Topic :: Software Development :: Libraries :: Python Modules',
         ],
-        python_requires='>=3.3',
+        python_requires='>=3.4',
         install_requires=_install_requires(),
         tests_require=_tests_require(),
         #test_suite='nose.collector',
